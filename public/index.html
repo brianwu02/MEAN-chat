@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Sample Chat App</title>
+  </head>
+  <body ng-app="myApp">
+    <div ng-controller="AppCtrl">
+      <div class="col">
+      <h3>Messages</h3>
+      <div class="overflowable">
+        <p ng-repeat="message in messages">{{message.user}}:{{message.text}}</p>
+      </div>
+    </div>
+        
+      <div class="col">
+        <h3>Users</h3>
+          <div class="overflowable">
+            <p ng-repeat="user in users">{{user}}</p>
+          </div>
+      </div>
+
+      <div class="clr">
+        <form ng-submit="sendMessage()">Message:
+          <input size="60" ng-model="message"/>
+          <input type="submit" value="Send"/>
+        </form>
+      </div>
+
+      <div class="clr">
+        <h3>Change your name</h3>
+        <p>Your Current username is: {{name}}</p>
+        <form ng-submit="changeName()">
+          <input ng-model="newName"/>
+          <input type="submit" value="Change Name"/>
+        </form>
+      </div>
+
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.0.4/angular.min.js"></script>
+    <script src="./socket.io/socket.io.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/services.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/filters.js"></script>
+    <script src="js/directives.js"></script>
+  </body>
+</html>
